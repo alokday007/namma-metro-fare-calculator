@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 
 from fare_calculator import calculate_fare, resolve_station
 
@@ -10,9 +10,15 @@ STATIONS_FILE = Path(__file__).parent / 'stations.json'
 with STATIONS_FILE.open(encoding='utf-8') as f:
     STATIONS = json.load(f)['stations']
 
+def _stations_by_line():
+    grouped = {}
+    for s in STATIONS:
+        grouped.setdefault(s['line'], []).append(s)
+    return grouped
+
 @app.route('/')
-def hello():
-    return '<h1>Namma Metro Fare Calculator - Coming Soon!</h1>'
+def index():
+    return render_template('index.html', stations_by_line=_stations_by_line())
 
 @app.route('/api/stations')
 def list_stations():
