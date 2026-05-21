@@ -53,6 +53,16 @@ _AVG_HOP_KM = {
 }
 
 
+_CANONICAL_BY_LOWER = {s['name'].lower(): s['name'] for s in _STATIONS}
+
+
+def resolve_station(name):
+    """Return the canonical station name for a case-insensitive input, or None."""
+    if name is None:
+        return None
+    return _CANONICAL_BY_LOWER.get(name.strip().lower())
+
+
 def _lines_for(name):
     return [line for line, stns in _BY_LINE.items() if name in stns]
 
