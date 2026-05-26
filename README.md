@@ -2,6 +2,12 @@
 
 A Flask-based fare calculator for Bengaluru's Namma Metro (BMRCL). Enter any two stations across the Purple, Green, or Yellow lines and get the estimated fare based on BMRCL's distance-slab pricing.
 
+## 🔗 Live Demo
+
+**[https://namma-metro-fare-calculator.onrender.com](https://namma-metro-fare-calculator.onrender.com)**
+
+> ⚠️ Hosted on Render's free tier — if the app has been idle, the first request may take **~30–50 seconds** to wake up. Subsequent requests are fast.
+
 ## Features
 
 - 85 operational stations across **Purple**, **Green**, and **Yellow** lines (as of May 2026)
@@ -101,6 +107,16 @@ _Coming soon — UI is under development._
 ![Home page](docs/screenshots/home.png)
 ![Fare result](docs/screenshots/fare-result.png)
 -->
+
+## Deployment
+
+The app is deployed on **[Render](https://render.com)** and served with **gunicorn**:
+
+```
+gunicorn app:app --bind 0.0.0.0:$PORT
+```
+
+Render auto-deploys from the `main` branch — every push to `main` triggers a new build and rollout.
 
 ## Credits
 
