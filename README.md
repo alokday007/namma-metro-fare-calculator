@@ -101,7 +101,7 @@ PASS  Purple <-> Yellow double interchange (Whitefield -> Bommasandra)
 
 ## Screenshots
 
-_Coming soon — UI is under development._
+![Fare calculation from Whitefield to Bommasandra, showing distance and interchange stations](screenshot.png)
 
 <!--
 ![Home page](docs/screenshots/home.png)
